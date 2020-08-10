@@ -50,19 +50,22 @@ color:#667eea
   font-family: 'Mulish', sans-serif;
   font-weight: 900;
 }
-
-.main-buttons > span {
+.main-buttons > a {
+  text-decoration:none ;
+  padding: 5px;
   width: 30%;
   text-align: center;
-  padding: 5px;
   border-radius: 22px;
 }
-.login {
+
+.login-btn {
   background-color: #667eea;
   color: white;
 }
-.register {
+.register-btn {
+  text-decoration-line: none;
   background-color: white;
+  color: black;
 }
 
 .main-features > h2 {

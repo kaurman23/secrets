@@ -1,5 +1,5 @@
 import React from 'react'
-
+import {Link} from 'react-router-dom';
 export const Main = () => {
     return (
         <>
@@ -10,8 +10,12 @@ export const Main = () => {
                     <p className="main-description">This is a safe space where you can let your secrets out without disclosing your identify.</p>
                 </div>
                 <div className="main-buttons">
-                    <span className="login"> Log In </span>
-                    <span className="register"> Register</span>
+                    <Link to="/login" className="login-btn">
+                        <span  type="button"> Log In </span>
+                    </Link>
+                    <Link to="/register" className="register-btn">
+                        <span  type="button"> Register</span>
+                    </Link>
                 </div>
             </div>
             <div className="main-features">
