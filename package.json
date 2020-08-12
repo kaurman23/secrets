@@ -4,8 +4,11 @@
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "server.js",
   "scripts": {
+    "client-install": "npm install --prefix client",
     "start": "node server",
-    "server": "nodemon server"
+    "server": "nodemon server",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
@@ -22,6 +25,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "mongoose": "^5.9.28",
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "shortid": "^2.2.15"
   }
 }

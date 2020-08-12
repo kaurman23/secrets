@@ -3,7 +3,7 @@ import React from 'react'
 export const Login = () => {
     return (
         <div className="login">
-            <h1>Secrets. <span> 🔐 </span></h1>
+            <h1>Secrets. <span role="img"> 🔐 </span></h1>
             <div className="login-frame">
                 <h2 className="login-welcome">Welcome Back!</h2>
                 <form className="login-form">

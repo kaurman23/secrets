@@ -3,7 +3,7 @@ import React from 'react'
 export const Register = () => {
     return (
         <div className="register">
-            <h1>Secrets. <span> 🔐 </span></h1>
+            <h1>Secrets. <span role="img"> 🔐 </span></h1>
             <div className="register-frame">
                 <h2 className="register-welcome">Welcome!</h2>
                 <form className="register-form">
