@@ -1,13 +1,15 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const dotenv = require ('dotenv');
-
 const app= express();
+const connectDB = require('./config/db');
 
 dotenv.config({path: './config/config.env'});
 
-app.get('/', (req,res) => {
-    res.send("Hello");
-})
+connectDB();
+
+const secrets = require('./routes/secrets');
+app.use('/api/v1',secrets)
 
 const PORT = process.env.PORT || 5000; //in case can't fetch port from evv file
 
