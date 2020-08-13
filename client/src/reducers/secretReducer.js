@@ -15,6 +15,11 @@ export default function(state=initialState, action){
             return {
                 ...state
             }
+        case ADD_SECRETS:
+            return {
+                ...state,
+                secrets: [action.payload, ...state.secrets ]
+            }
         default:
             return state;
     }

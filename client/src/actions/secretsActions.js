@@ -5,3 +5,10 @@ export const getSecrets = () => {
         type: GET_SECRETS
     }
 }
+
+export const addSecrets = (secret) => {
+    return {
+        type: ADD_SECRETS,
+        payload: secret
+    }
+}
