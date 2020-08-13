@@ -1,20 +1,38 @@
-import React,{useState} from 'react';
-import shortid from "shortid";
+import React,{useState, useEffect} from 'react';
+import { connect} from 'react-redux';
+import {getSecrets} from '../actions/secretsActions';
+import PropTypes from 'prop-types'
 
-export const Dashboard = () => {
+function Dashboard (props)  {
 
-    const [secrets, setSecrets] = useState({
-        secrets: [
-            {id:1, text:"Hello" },
-            {id:2, text:"It's"},
-            {id:3, text:"Britney Bitch"}
-        ]
-    })
+    useEffect(() => {
+        props.getSecrets();
+    }, [])
+
+    const {secrets} = props.secrets;
+    console.log('Secrets is', secrets);
 
     return (
         <div>
-            <input placeholder="Enter your secret"></input>
-            <button>ADD</button>
+            DASHBOARD HERE
+            {
+                secrets.map((item,i) => {
+                   return <h1 key={i}>{item.text}</h1>
+                })
+            }
         </div>
     )
 }
+
+Dashboard.propTypes = {
+    getSecrets: PropTypes.func.isRequired,
+    secrets: PropTypes.object.isRequired
+}
+
+const mapStateToProps = (state) => ({
+    secrets: state.secrets
+})
+
+export default connect(mapStateToProps, {getSecrets})(Dashboard);
+
+//all action are this.props.getSecrets like so

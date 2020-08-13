@@ -3,7 +3,7 @@ import './App.css';
 import {Main} from "./components/Main";
 import {Login} from "./components/Login";
 import {Register} from "./components/Register";
-import {Dashboard} from "./components/Dashboard";
+import Dashboard from "./components/Dashboard";
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 import {Provider} from 'react-redux';
@@ -11,7 +11,8 @@ import store from "./store";
 
 function App() {
   return (
-    <Provider >
+    // provider makes store avail to every component
+    <Provider store={store}>
       <Router >
         <Switch>
           <Route path="/" exact component={Main} />
