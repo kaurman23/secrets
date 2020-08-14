@@ -2,7 +2,6 @@ import React,{useState, useEffect} from 'react';
 import { connect} from 'react-redux';
 import {getSecrets, addSecrets} from '../actions/secretsActions';
 import PropTypes from 'prop-types';
-import shortid from 'shortid';
 
 function Dashboard (props)  {
 
@@ -13,11 +12,10 @@ function Dashboard (props)  {
     }, [])
 
     const {secrets} = props.secrets;
-    console.log('Secrets is', secrets);
+    // console.log('Secrets is', secrets);
 
     const addPost = () => {
         const newPost = {
-            id: shortid.generate(),
             text: post
         }
 

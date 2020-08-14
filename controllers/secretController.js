@@ -9,12 +9,15 @@ const Secrets = require('../modals/secrets');
 exports.getSecrets = async (req, res, next) => {
     try {
         const secrets = await Secrets.find();
+        // console.log(secrets)
 
         return res.status(200).json({
             success: true,
             count: secrets.length,
             data: secrets
         });
+
+        // in action get the data through res.data which will give us secrets
     } catch (error) {
         return res.status(500).json({
             success: false,
