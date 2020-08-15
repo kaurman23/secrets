@@ -10,7 +10,7 @@ export const getSecrets = () => dispatch  => {
             type: GET_SECRETS,
             payload:res.data.data
         });
-        // console.log('res is', res.data.data);
+        console.log('res is', res.data.data);
     })
 }
 
@@ -25,6 +25,6 @@ export const addSecrets = (secret) => (dispatch) => {
 
 export const setSecretsLoading = () => {
     return {
-        type: LOADING,
+        type: LOADING
     }
 }

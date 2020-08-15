@@ -12,7 +12,7 @@ function Dashboard (props)  {
     }, [])
 
     const {secrets} = props.secrets;
-    // console.log('Secrets is', secrets);
+    console.log('Secrets is', secrets);
 
     const addPost = () => {
         const newPost = {

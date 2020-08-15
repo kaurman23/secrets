@@ -12,7 +12,9 @@ dotenv.config({path: './config/config.env'});
 connectDB();
 
 const secrets = require('./routes/secrets');
+const users = require('./routes/users');
 app.use('/api/v1/secrets',secrets)
+app.use('/api/v1/users',users)
 
 const PORT = process.env.PORT || 5000; //in case can't fetch port from evv file
 
