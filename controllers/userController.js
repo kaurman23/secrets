@@ -58,8 +58,6 @@ exports.registerUser = (req,res) => {
                                 });
                             }
                         )
-
-                        
                     })
             })
         })
