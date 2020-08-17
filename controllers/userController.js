@@ -1,5 +1,9 @@
-const Users = require('../modals/users')
 const bcrypt = require('bcryptjs');
+const config = require('config');
+const jwt = require('jsonwebtoken');
+
+//User model
+const Users = require('../modals/users')
 
 //@desc     POST register a user
 //@api       /api/v1/users
@@ -36,13 +40,26 @@ exports.registerUser = (req,res) => {
                 newUser.password=hash;
                 newUser.save()
                     .then(user => {
-                        res.json({
-                            user: {
-                                id: user.id,
-                                name: user.name,
-                                email: user.email
+
+                        //payload,secret, optional
+                        jwt.sign(
+                            { id: user.id},
+                            config.get('jwtSecret'),
+                            {expiresIn: 1800},
+                            (err,token) => {
+                                if(err) throw err;
+                                res.json({
+                                    token: token,
+                                    user: {
+                                        id: user.id,
+                                        name: user.name,
+                                        email: user.email
+                                    }
+                                });
                             }
-                        })
+                        )
+
+                        
                     })
             })
         })
