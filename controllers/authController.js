@@ -21,19 +21,18 @@ exports.authUser = (req,res) => {
     //check for existing user
     Users.findOne({email})
     .then(user => {
+        
         if(!user){
             return res.status(400).json({
                 msg: 'User does not exists. Please register. '
             })
         }
 
-        
-
         //validate the hashed password
         //return a promise , a boolean
         bcrypt.compare(password, user.password)
             .then(isMatch => {
-                if(!isMatch) return res.status(400).json({ msg: 'Inavlid credentials' });
+                if(!isMatch) return res.status(400).json({ msg: 'Invalid credentials' });
 
                 jwt.sign(
                     { id: user.id},
